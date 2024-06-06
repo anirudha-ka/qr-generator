@@ -19,6 +19,12 @@ class MyQrCode:
     def add_data(self, data: str):
         self.QR.add_data(data)
 
+    def _save_local(self):
+        ''' saves a qrcode locally '''
+        self.QR.make(fit=True)
+        image = self.QR.make_image(fill_color="black", back_color="white")
+        image.save("./qr_code.png")
+
     def generate(self):
         ''' generate or make the QR '''
         self.QR.make(fit=True)
